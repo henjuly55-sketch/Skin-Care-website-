@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TJS Atelier - Skincare Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">TJS ATELIER</div>
+      <input type="checkbox" id="menu-btn" class="menu-check"style="display: none;">
+  
+    <label for="menu-btn" class="hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </label>
+      <nav class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT US</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="nav-icons">
+        <a href="shop.html" class="icon-link"><span class="icon">🔍</span></a>
+        <a href="shop.html" class="icon-link"><span class="icon">🛒</span></a>
+      </div>
+    </header>
+
+    <div class="carousel-container">
+      <!-- Images Container -->
+      <div class="carousel-slides" id="carouselSlides">
+        <img src="picture/Banner2.jpg" class="slide" alt="Slide 1" />
+        <img src="picture/Banner4.jpg" class="slide" alt="Slide 2" />
+        <img src="picture/Banner7.jpg" class="slide" alt="Slide 3" />
+        <img src="picture/Banner8.jpg" class="slide" alt="Slide 4" />
+        <img src="picture/Banner10.jpg" class="slide" alt="Slide 5" />
+        <img src="picture/Banner9.jpg" class="slide" alt="Slide 6" />
+        <img src="picture/Banner11.jpg" class="slide" alt="Slide 7" />
+        <img src="picture/Banner12.jpg" class="slide" alt="Slide 8" />
+        <img src="picture/Bannner13.jpg" class="slide" alt="Slide 9" />
+      
+        
+      </div>
+
+      
+      <div class="carousel-controls">
+        <button class="arrow-btn" id="prevBtn">&#10094;</button>
+        <span class="counter" id="counter">1 / 9</span>
+        <button class="arrow-btn" id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+
+    <script>
+      const carouselSlides = document.getElementById("carouselSlides");
+      const slides = document.querySelectorAll(".slide");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const counter = document.getElementById("counter");
+
+      let currentIndex = 1;
+
+      function updateCarousel() {
+        const slideWidth = slides[0].clientWidth + 15;
+        carouselSlides.scrollLeft = currentIndex * slideWidth;
+        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex++;
+        if (currentIndex >= slides.length) {
+          currentIndex = 0;
+        }
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = slides.length - 1;
+        }
+        updateCarousel();
+      });
+
+      window.addEventListener("resize", updateCarousel);
+
+      function initCarousel() {
+        
+    carouselSlides.style.scrollBehavior = 'auto';
+    updateCarousel();
+    
+    setTimeout(() => {
+        carouselSlides.style.scrollBehavior = 'smooth';
+    }, 50); 
+}
+window.addEventListener('load', initCarousel);
+    </script>
+
+    <div class="promo-bar">
+      <p>Exclusive Welcome Offer Just for You!</p>
+      <div class="coupon-text">Grab Your 30% OFF Coupon Now!</div>
+      <a href="shop.html" class="promo-link">
+        <img src="picture/icon.jpg" alt="Motorcycle Icon" class="btn-icon">
+        <button class="order-btn">Order now!</button>
+      </a>
+    </div>
+    <!-- Brands / Category Section -->
+    <section class="category-section-container">
+      <h2 class="section-title">Category</h2>
+
+      <div class="category-grid-matrix">
+        <!-- Brand 1 -->
+        <div class="category-item-card">
+          <div class="category-visual-wrapper">
+            <img src="picture/Anua.jpg" alt="Anua" />
+          </div>
+          <div class="category-meta">
+            <h2>Anua</h2>
+          </div>
+        </div>
+
+        <!-- Brand 2 -->
+        <div class="category-item-card">
+          <div class="category-visual-wrapper">
+            <img src="picture/Suncreen.jpg" alt="Skin 1004" />
+          </div>
+          <div class="category-meta">
+            <h2>Skin 1004</h2>
+          </div>
+        </div>
+
+        <!-- Brand 3 -->
+        <div class="category-item-card">
+          <div class="category-visual-wrapper">
+            <img src="picture/Beauty of Joseon.jpg" alt="Beauty of Joseon" />
+          </div>
+          <div class="category-meta">
+            <h2>Beauty of Joseon</h2>
+          </div>
+        </div>
+
+        <!-- Brand 4 -->
+        <div class="category-item-card">
+          <div class="category-visual-wrapper">
+            <img src="picture/Medicube.jpg" alt="Medicube" />
+          </div>
+          <div class="category-meta">
+            <h2>Medicube</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="middle-banner">
+      <div class="mid-banner-text">
+        <h2>
+            Skin first,<br /><span class="highlight"> self </span> always
+        </h2>
+      </div>
+      <div class="mid-banner-img">
+        <img src="picture/Mock Up Cosmetic Products For Skin And Hair Care With Plant Extract Natural Cosmetics, Skin Care, Hair Care, Cosmetics PNG Transparent Image and Clipart for Free Download.jpg" alt="Green Skincare" />
+      </div>
+      <div class="stats-box">
+        <div class="stat-item">
+          <span class="stat-num">1M+</span>
+          <span class="stat-lbl">Happy Customers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">30k</span>
+          <span class="stat-lbl">Rating Customers</span>
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="best-sellers-section-container">
+      <div class="best-sellers-title-row">
+        <h2>Best Sellers</h2>
+        <a href="product.html">
+        <button class="top-view-all-btn">View all</button>
+        </a>
+      </div>
+
+      <div class="skincare-products-grid">
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/Anua.jpg" alt="Anua" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Anua</span>
+              <div class="price-stack">
+                <span class="was-price">US$17.00</span>
+                <span class="now-price">US$15.00</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Azelaic Acid 10</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/Suncreen.jpg" alt="Skin 1004" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Skin 1004</span>
+              <div class="price-stack">
+                <span class="was-price">US$12.00</span>
+                <span class="now-price">US$10.50</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Hyalu-Cica Sun Serum</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/Beauty of Joseon.jpg" alt="Beauty of Joseon" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Beauty of Joseon</span>
+              <div class="price-stack">
+                <span class="was-price">US$12.80</span>
+                <span class="now-price">US$11.50</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Red Bean Clay Mask</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/Medicube.jpg" alt="Medicube" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Medicube</span>
+              <div class="price-stack">
+                <span class="was-price">US$18.50</span>
+                <span class="now-price">US$17.80</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Pink Collagen Capsule Cream</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/NINELESS .jpg" alt="Nineless" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Nineless</span>
+              <div class="price-stack">
+                <span class="was-price">US$14.00</span>
+                <span class="now-price">US$13.00</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Azelaic Acid 10</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img
+              src="picture/Beauty of Joseon Matte sun stick .jpg"
+              alt="Beauty of Joseon"
+            />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Beauty of Joseon</span>
+              <div class="price-stack">
+                <span class="was-price">US$16.00</span>
+                <span class="now-price">US$12.00</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Matte Sun Stick</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/download (14).jpg" alt="DR.G" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">DR.G</span>
+              <div class="price-stack">
+                <span class="was-price">US$16.00</span>
+                <span class="now-price">US$14.05</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Red Blemish Clear Soothing Cream 70ml</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+         <div class="skincare-item-card">
+          <div class="visual-wrapper">
+            <img src="picture/CELLMAZING Pore Perfecting Ampoule (30ml).jpg" alt="Torriden" />
+          </div>
+          <div class="item-meta-info">
+            <div class="top-meta-line">
+              <span class="brand-heading">Torriden</span>
+              <div class="price-stack">
+                <span class="was-price">US$16.00</span>
+                <span class="now-price">US$14.05</span>
+              </div>
+            </div>
+            <p class="product-variant-title">Torriden Cellmazing Pore Perfecting Ampoule 30ml</p>
+            <div class="bottom-action-line">
+              <span class="action-trigger-text">See more...</span>
+              <button class="action-buy-button">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="footer-btn-wrapper">
+        <a href="shop.html" class="button-link">
+          <button class="load-more-btn">View More &gt;</button>
+        </a>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>MENU</h4>
+          <div class="footer-links">
+            <a href="home.html">HOME</a>
+            <a href="shop.html">SHOP</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>OUR LOCATION</h4>
+          <p>
+            Russian Federation Blvd, <br />
+            Phnom Penh, Cambodia
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>FIND US ON SOCIALS</h4>
+          <p>
+            we are available on both<br />
+            facebook and instagram
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
